@@ -1,0 +1,894 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EmpMaster.master.cs" Inherits="EmployeeMaster.EmpMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+  
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>EMP</title>
+    <!--=== CSS ===-->
+    <!-- Bootstrap 1111111111-->
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- jQuery 2.1.4 -->
+    <%--<script src="plugins/jquery-ui/jQuery-2.1.4.min.js"></script>--%>
+    <%-- <script src="assets/css/chosen.jquery.js"></script>
+    <link href="assets/css/chosen.css" rel="stylesheet" />--%>
+
+    <!--=== JavaScript ===-->
+    <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <%-- [if lt IE 9]>--%>
+    <script src="assets/js/libs/html5shiv.js"></script>
+    <%--  <![endif]--%>
+    <!-- Smartphone Touch Events -->
+    <script type="text/javascript" src="plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.move.js"></script>
+    <script type="text/javascript" src="plugins/event.swipe/jquery.event.swipe.js"></script>
+    <!-- General -->
+    <script type="text/javascript" src="assets/js/libs/breakpoints.js"></script>
+    <script type="text/javascript" src="plugins/respond/respond.min.js"></script>
+    <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+    <%--<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>--%>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+    <!-- Page specific plugins -->
+    <!-- Charts -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="plugins/flot/excanvas.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/jquery.flot.growraf.min.js"></script>
+    <script type="text/javascript" src="plugins/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+    <script type="text/javascript" src="plugins/fullcalendar/fullcalendar.min.js"></script>
+    <!-- Noty -->
+    <script type="text/javascript" src="plugins/noty/jquery.noty.js"></script>
+    <script type="text/javascript" src="plugins/noty/layouts/top.js"></script>
+    <script type="text/javascript" src="plugins/noty/themes/default.js"></script>
+    <!-- Forms -->
+    <script type="text/javascript" src="plugins/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="plugins/select2/select2.min.js"></script>
+    <!-- App -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+
+  
+
+    <script>    
+        $(document).ready(function () {
+            "use strict";
+            App.init(); // Init layout and core plugins
+            Plugins.init(); // Init all plugins1
+            FormComponents.init(); // Init all form-specific plugins
+       
+
+
+
+        });
+    </script>
+    <!-- Demo JS -->
+    <%--<script type="text/javascript" src="assets/js/custom.js"></script>--%>
+    <script type="text/javascript" src="assets/js/demo/pages_calendar.js"></script>
+    <script type="text/javascript" src="assets/js/demo/charts/chart_filled_blue.js"></script>
+    <script type="text/javascript" src="assets/js/demo/charts/chart_simple.js"></script>
+
+
+
+    <script type="text/javascript" src="assets/js/demo/ui_buttons.js"></script>
+    <%--<script type="text/javascript" src="assets/js/demo/google_maps.js"></script>--%>
+    <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+        <!-- Header -->
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <header class="header navbar navbar-fixed-top" role="banner">
+            <!-- Top Navigation Bar -->
+            <div class="container">
+
+                <!-- Only visible on smartphones, menu toggle -->
+                <ul class="nav navbar-nav">
+                    <li class="nav-toggle"><a href="javascript:void(0);" title=""><i class="icon-reorder"></i></a></li>
+                </ul>
+
+                <!-- Logo -->
+                <a class="navbar-brand" href="Home.aspx">
+                    
+                    <strong>SWM</strong>
+                </a>
+                <!-- /logo -->
+
+                <!-- Sidebar Toggler -->
+                <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">
+                    <i class="icon-reorder"></i>
+                </a>
+                <!-- /Sidebar Toggler -->
+                <!-- Top center Menu -->
+                <%--  <ul class="nav navbar-nav ">
+                   <%-- <li>
+                        <a href="#">DateTime:
+                <asp:Label ID="lblDate1" runat="server" CssClass="label primary" ClientIDMode="Static" Font-Size="12px"></asp:Label></a>
+                    </li>
+                    
+                    <li>
+                         <marquee style="color: #94ee08;font-size: 15px; font-weight: bold; padding-top: 7px;width:850px"> 
+                             <asp:label ID="lblSupport"  runat="server" /> 
+
+                         </marquee>
+                    </li>
+
+ 
+
+                </ul>--%>
+                <!-- /Top center Menu -->
+
+
+
+                <!-- Top Right Menu -->
+
+
+                <!-- Top Right Menu -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Notifications -->
+
+                    <!-- User Login Dropdown -->
+                    <li class="dropdown user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!--<img alt="" src="assets/img/avatar1_small.jpg" />-->
+                            <i class="icon-male"></i>
+                            <span>
+                                <asp:Label Text="Account" runat="server" CssClass="username" ID="lblUserName" /></span>
+                            <i class="icon-caret-down small"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <%-- <li><a href="#"><i class="icon-user"></i>My Profile</a></li>
+                            <li><a href="#"><i class="icon-calendar"></i>My Calendar</a></li>
+                            <li><a href="#"><i class="icon-tasks"></i>My Tasks</a></li>
+                            <li class="divider"></li>--%>
+                            <li><a href="ChangePassword.aspx"><i class="icon-lock"></i>Change Password</a></li>
+                            <li><a href="Logout.aspx"><i class="icon-key"></i>Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- /user login dropdown -->
+                </ul>
+                <!-- /Top Right Menu -->
+
+            </div>
+            <!-- /top navigation bar -->
+
+            <!--=== Project Switcher ===-->
+
+        </header>
+        <!-- /.header -->
+
+
+
+        <%--  <div class="progress1 col-md-12" style="padding-right: 0; padding-left: 0">
+                <div id="dynamic" class="progress-bar progress-bar-warning progress-bar-striped active" " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; height: 15px">
+                    <span id="current-progress"></span>
+                </div>
+            </div>--%>
+      
+        <div id="container">
+            <div id="sidebar" class="sidebar-fixed" style="overflow-y: auto;">
+                <div id="sidebar-content">
+
+
+                   
+                    <!-- /.sidebar-search-results -->
+
+                    <!--=== Navigation ===-->
+                    <ul id="nav">
+                        <%--<li class="current">
+						<a href="index.html">
+							<i class="icon-dashboard"></i>
+							Dashboard
+						</a>
+					</li>--%>
+                        <%--managemnt, EMP,opetn,vehicle tracking, compl, fuel mgnt,  qr, shift ,  reports, geofence, control,UCC,--%>
+                        <li id="limanagement" runat="server" visible="true">
+                            <a href="javascript:void(0);">
+                                <i class="icon-home"></i>
+                                Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="lidashboard" runat="server"   title="You have not Subscribe this Feature">
+                                    <a href="ShowEmployeeDetails.aspx">
+                                        <i class="icon-dashboard"></i>
+                                        Search Employee
+                                    </a>
+                                </li>
+                                <li id="liPerformanceDash" runat="server"   title="You have not Subscribe this Feature">
+                                    <a href="WorkPerformanceDashboard2.aspx">
+                                        <i class="icon-dashboard"></i>
+                                        Work Performance Dashboard
+                                    </a>
+                                </li>
+                                <li id="liliveanalysis" runat="server"  title="You have not Subscribe this Feature">
+                                    <a href="LiveAnalysis.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Live Analysis
+                                    </a>
+                                </li>
+                                <li id="livehicledashboard" runat="server"  title="You have not Subscribe this Feature">
+                                    <a href="VehicleDashboard.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Vehicle Dashboard 
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liDevOpr" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-desktop"></i>
+                                Device Operations
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liRegDev" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="RegNewDev.aspx">
+                                        <i class="icon-dashboard"></i>
+                                        Register New Device
+                                    </a>
+                                </li>
+                                <li id="liVehicleInfo" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="MyVehicles.aspx">
+                                        <i class="icon-dashboard"></i>
+                                        Vehicle Info
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liUserLogin" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-user"></i>
+                                User
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liChangeAcc" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ChangeAccount.aspx">
+                                        <i class="icon-dashboard"></i>
+                                        Login User's Account
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li id="liadduser" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-user"></i>
+                                Employee
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liaddsubadmin" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddSubadmin.aspx">
+                                        <i class="icon-user"></i>
+                                        Add Sub Admin
+                                    </a>
+                                </li>
+                                <li id="liaddemployee" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddEmployee.aspx">
+                                        <i class="icon-user"></i>
+                                        Add Employee
+                                    </a>
+                                </li>
+                                <li id="liEmpRegistration" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="EmpRegistration.aspx">
+                                        <i class="icon-user"></i>
+                                        Add Employee
+                                    </a>
+                                </li>
+                                <li id="liAssignEmployee" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignEmpRelation.aspx">
+                                        <i class="icon-share-alt"></i>
+                                        Assign Employee Relation
+                                    </a>
+                                </li>
+                                <li id="liempLoginAccess" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="EmpLoginAccess.aspx">
+                                        <i class="icon-user"></i>
+                                        Employee Login Restriction
+                                    </a>
+                                </li>
+                                <li id="liAssignZnWdVtoEmp" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignZoneWardVehicleToEmp.aspx">
+                                        <i class="icon-user"></i>
+                                        Assign Employee Zone-Ward,Vehicle
+                                    </a>
+                                </li>
+                                <li id="liMonitoringSystem" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="MonitoringSystem.aspx">
+                                        <i class="icon-forward"></i>
+                                        Supervisor Monitoring System
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="lioperationmgnt" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-desktop"></i>
+                                Operation Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liAddCompanyLocSite" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddCompanyLocSite.aspx">
+                                        <i class="icon-user"></i>
+                                        Add Company/Location/Site
+                                    </a>
+                                </li>
+                                <li id="liaddvehicleinfo" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddVehicleInfo.aspx">
+                                        <i class="icon-truck"></i>
+                                        Add Vehicle Information
+                                    </a>
+                                </li>
+                                 <li id="lieditvehiclebyuser" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="UserEditVehicle.aspx">
+                                        <i class="icon-truck"></i>
+                                        Edit Vehicle Information
+                                    </a>
+                                </li>
+                                <li id="liShiftVehicleAccounts" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ShiftVehicleAccounts.aspx">
+                                        <i class="icon-truck"></i>
+                                        Shift Vehicle to Account
+                                    </a>
+                                </li>
+                                <li id="liaddzoneward" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddZone_Ward.aspx">
+                                        <i class="icon-user"></i>
+                                        Add Zone/Wards
+                                    </a>
+                                </li>
+                                <li id="liAssignZoneWardToVehicle" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignZoneWardToVehicle.aspx">
+                                        <i class="icon-forward"></i>
+                                        Assign Zone-Ward To Vehicle
+                                    </a>
+                                </li>
+                                <li id="liaddroute" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddRoute.aspx">
+                                        <i class="icon-road"></i>
+                                        Add Route
+                                    </a>
+                                </li>
+                                <li id="liFilterRoute" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="#.aspx">
+                                        <i class="icon-road"></i>
+                                        Filter Route
+                                    </a>
+                                </li>
+                                <li id="liassignroute" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignRoute.aspx">
+                                        <i class="icon-truck"></i>
+                                        Assign Route to vehicle 
+                                    </a>
+                                </li>
+                                <li id="liAddPolygon" runat="server" visible="true" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddPolygon.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Add Polygon
+                                    </a>
+                                </li>
+                                <li id="liStopage" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="addStopagePointOnRoute.aspx">
+                                        <i class="icon-map-marker"></i>
+                                        Add Stopage Point
+                                    </a>
+                                </li>
+
+                                <li id="liCreateStopage" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="CreateStopagePointOnRoute.aspx">
+                                        <i class="icon-map-marker"></i>
+                                        Assign Bin To Society
+                                    </a>
+                                </li>
+
+                                <li id="liDummyPercentageReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="WorkPerformance.aspx">
+                                        <i class="icon-map-marker"></i>
+                                        Add Dummy Percentage Entries
+                                    </a>
+                                </li>
+                                <li id="liaddgistype" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddGISType.aspx">
+                                        <i class="icon-user"></i>
+                                        Add GIS Type Data
+                                    </a>
+                                </li>
+                                <li id="ligismapdata" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ViewGISData.aspx">
+                                        <i class="icon-road"></i>
+                                        View GIS Mapping Data
+                                    </a>
+                                </li>
+                                <li id="lilivemont" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="#.aspx">
+                                        <i class="icon-road"></i>
+                                        Live GIS Mapping Beat & Route
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="livts" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-location-arrow"></i>
+                                Vehicle Tracking
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="lilivetracking" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="Livetracking.aspx">
+                                        <i class="icon-location-arrow"></i>
+                                        Live Tracking
+                                    </a>
+                                </li>
+
+                                <li id="lilivetrkwithroute" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="LiveTrackingWithRoute.aspx">
+                                        <i class="icon-location-arrow"></i>
+                                        Live Tracking With Route
+                                    </a>
+                                </li>
+                                <li id="lihistorymap" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehicleMap.aspx">
+                                        <i class="icon-map-marker"></i>
+                                        Vehicle History Map
+                                    </a>
+                                </li>
+                                <li id="liVehcileMapRoute" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehicleMapwithRoute.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Vehicle Map with Route  
+                                    </a>
+                                </li>
+                                <li id="liVehicleMapWithStopage" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehicleMapWithStopage.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Vehicle Map With Stopage
+                                    </a>
+                                </li>
+                                <li id="liBinCoverageMap" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="BinCoverage.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Bin Coverage Map
+                                    </a>
+                                </li>
+                                <li id="liVehicleMapTrip" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehicleMapwithTrip.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Vehicle Map with Trip
+                                    </a>
+                                </li>
+                                <li id="lihistoryrpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehiclehistoryReport.aspx">
+                                        <i class="icon-bar-chart"></i>
+                                        Vehicle History Report
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="licomplaintmgnt" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-user"></i>
+                                Complaint Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liaddcomplaint" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ComplaintReg.aspx">
+                                        <i class="icon-list-alt"></i>
+                                        Add Complaint
+                                    </a>
+                                </li>
+
+                                <li id="liasscomplaint" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignComplaint.aspx">
+                                        <i class="icon-forward"></i>
+                                        Assign Complaint
+                                    </a>
+                                </li>
+                                <li id="liRegComplaint" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ComplaintMgmt.aspx">
+                                        <i class="icon-list-alt"></i>
+                                        Register Complaint
+                                    </a>
+                                </li>
+            <li id="licallingcomplaint" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ViewCallingComplaints.aspx">
+                                        <i class="icon-forward"></i>
+                                        View Calling Complaints
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="lifuelmgnt" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-tint"></i>
+                                Fuel Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="ligenerateslip" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="FuelSlipHistory.aspx">
+                                        <i class="icon-folder-open"></i>
+                                        Generate Slip
+                                    </a>
+                                </li>
+                                <li id="liviewsfuellip" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="#">
+                                        <i class="icon-align-justify"></i>
+                                        View Fuel Slip History
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liqrcode" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-qrcode"></i>
+                                QR Codes Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="likyc" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="KYCRegistration.aspx">
+                                        <i class="icon-user-md"></i>
+                                        KYC Registration
+                                    </a>
+                                </li>
+
+                                <li id="liqrcodehistory" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="QRCodeHistory.aspx">
+                                        <i class="icon-h-sign"></i>
+                                        QR Codes history
+                                    </a>
+                                </li>
+                                <li id="liqrcodetracking" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="QRCodeTrackingHistory.aspx">
+                                        <i class="icon-location-arrow"></i>
+                                        QR Codes History Tracking
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="liShiftMgnt" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-time"></i>
+                                Shift Management
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liaddshift" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AddShifts.aspx">
+                                        <i class="icon-plus"></i>
+                                        Add Shift/s
+                                    </a>
+                                </li>
+
+                                <li id="liassignshift" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignShiftToVehicle.aspx">
+                                        <i class="icon-share-alt"></i>
+                                        Assign Shift To Vehicle/s
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li id="lireports" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-list-ul"></i>
+                                Reports
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="lireport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="Reports.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Performance Reports							
+                                    </a>
+                                </li>
+                                <li id="ligrpreport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="GroupReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Group Reports							
+                                    </a>
+                                </li>
+                                 <li id="licoverageReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="CoverageReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Covergae Reports							
+                                    </a>
+                                </li>
+                                <li id="ligenrateWpercentage" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="GenerateWorkPercentageReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Genrate Work Percentage Report							
+                                    </a>
+                                </li>
+                                <li id="lipercReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="PercentageReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Route Coverage Report						
+                                    </a>
+                                </li>
+                                <li id="liBinCoverageReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="BinCoverageReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Bin Coverage Report						
+                                    </a>
+                                </li>
+                                <li id="liBinCoverageDtlRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="BinCoverageDetailRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Bin Coverage Detail Report						
+                                    </a>
+                                </li>
+                                <li id="liTagScanreport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="TagScanSurvey.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Tag Scan Survey Report
+                                    </a>
+                                </li>
+                                <li id="livehwiseBinCovReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehicleWiseBinCoverageCount.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Vehicle wise Bin Coverage Count Report						
+                                    </a>
+                                </li>
+                                <li id="liMonthlyBinPickupReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="MonthlyBinPickedUpReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Monthly Bin Pickup Report						
+                                    </a>
+                                </li>
+                                <li id="liDailyBinPickupReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="DailyBinPickupReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Daily Bin Pickup Report						
+                                    </a>
+                                </li>
+
+                                <li id="liodopercReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="OdometerWisePercentage.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Odometer Coverage Report						
+                                    </a>
+                                </li>
+                                <li id="liTransferStationTripRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="TransferStationTripRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Transfer Station Trip Report						
+                                    </a>
+                                </li>
+                                <li id="liDumpingYardTripRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="DumpingYardTripRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Dumping Yard Trip Report						
+                                    </a>
+                                </li>
+                                <li id="liFuelHistoryRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="FuelHistoryRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Fuel History Report						
+                                    </a>
+                                </li>
+                                <li id="liFuelPaymentHistoryRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="FuelPaymentHistoryRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Fuel Payment History Report						
+                                    </a>
+                                </li>
+                                <li id="liParkingODORpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ParkingODORpt3.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Parking ODO Report						
+                                    </a>
+                                </li>
+                                <li id="liWeightBridgeHistoryRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="WeightBridgeHistoryRpt.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Weight Bridge History Report						
+                                    </a>
+                                </li>
+                                <li id="liAttendReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="VehAttendanceReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Vehicle Attendance Report                            
+                                    </a>
+                                </li>
+
+
+
+                                <li id="liAttendCntReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AttendanceReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Vehicle Attendance Count Report
+                                    </a>
+                                </li>
+                                <li id="liStopageReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="vehicleStoppageReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Vehicle Stopage Report							
+                                    </a>
+                                </li>
+                                <li id="liCheckpointReport" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="CheckpointReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        Checkpoint Arraival Vehicle Report							
+                                    </a>
+                                </li>
+                                <li id="liDataframeRpt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="DataFrameReport.aspx">
+                                        <i class="icon-list-ul"></i>
+                                        DataFrame Report							
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li id="liGeofence" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-globe"></i>
+                                Geofence
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="liCreateGeo" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="CreateGeofence.aspx">
+                                        <i class="icon-plus"></i>
+                                        Create Geofence
+                                    </a>
+                                </li>
+                                <li id="liAssignGeo" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="AssignGeofence.aspx">
+                                        <i class="icon-share-alt"></i>
+                                        Assign Geofence
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="liucc" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-rupee"></i>
+                                User Charge Collection
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="lires" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ResidentialAndShop.aspx">
+                                        <i class="icon-building"></i>
+                                        Residential & Shop
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li id="licontrolroom" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-bullhorn "></i>
+                                Control Room
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="licontrolrm" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="ControlRoom.aspx">
+                                        <i class="icon-share"></i>
+                                        Control Room
+                                    </a>
+                                </li>
+                                <li id="liweighmgt" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="WeighBridge.aspx">
+                                        <i class="icon-stackexchange"></i>
+                                        Weight Management
+                                    </a>
+                                </li>
+                                <li id="liaddwagesdeduction" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="WagesDeduction.aspx">
+                                        <i class="icon-stackexchange"></i>
+                                        Add Wages Deduction
+                                    </a>
+                                </li>
+                                addwagesdeduction
+                                <li id="liccid" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="CCIDReport.aspx">
+                                        <i class="icon-forward"></i>
+                                        CCID Report
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <%-- NOT IN  USE--%>
+                        <%--  
+                           <li id="lirfid" runat="server" visible="false">
+                            <a href="javascript:void(0);">
+                                <i class="icon-barcode"></i>
+                                RFID Barcodes
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="lirviewfid" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                                    <a href="#.aspx">
+                                        <i class="icon-barcode"></i>
+                                        View RFID Barcodes
+							
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>--%>
+
+                        <li id="licontactus" runat="server" visible="false" class="disabled" onclick="return false;" title="You have not Subscribe this Feature">
+                            <a href="#">
+                                <i class="icon-phone-sign"></i>
+                                Contact Us : <%-- <asp:Label id="lblTollFreeNo" runat="server" />
+                                <br />
+
+                              Email ID: <asp:Label id="lblEmailID" runat="server" />--%>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- /Navigation -->
+
+                    <%--   <div class="sidebar-widget align-center">
+                        <div class="btn-group" data-toggle="buttons" id="theme-switcher">
+                            <label class="btn active">
+                                <input type="radio" name="theme-switcher" data-theme="bright"><i class="icon-sun"></i> Bright
+                            </label>
+                            <label class="btn">
+                                <input type="radio" name="theme-switcher" data-theme="dark"><i class="icon-moon"></i> Dark
+                            </label>
+                        </div>
+                    </div>--%>
+                </div>
+                <div id="divider" class="resizeable"></div>
+            </div>
+            <!-- /Sidebar -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <%--  </div>--%>
+        <div class="fixed col-md-6 col-sm-3">
+            <marquee style="color: #091a92; font-size: 15px; font-weight: bold; padding-top: 7px; padding-bottom: 7px"> 
+                             <asp:label ID="lblSupport"  runat="server" /> 
+
+          </marquee>
+        </div>
+
+        <asp:HiddenField ID="hdInterval" runat="server" />
+
+    </form>
+</body>
+</html>
